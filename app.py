@@ -83,6 +83,7 @@ def extract_transcripts():
 
             try:
                 transcript = YouTubeTranscriptApi.get_transcript(video_id)
+                print(transcript)
                 full_transcript = ""
                 for entry in transcript:
                     start_time = entry["start"]
