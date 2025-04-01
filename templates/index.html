@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Extractor API</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand">YouTube Transcript Extractor API</span>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">API Documentation</h1>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Endpoint: /api/extract</h2>
+                        <p class="card-text">Extract transcripts from YouTube videos</p>
+                        
+                        <h3>Request Format</h3>
+                        <pre class="bg-dark text-light p-3 rounded"><code>{
+    "urls": [
+        "https://www.youtube.com/watch?v=video_id1",
+        "https://www.youtube.com/watch?v=video_id2"
+    ]
+}</code></pre>
+
+                        <h3 class="mt-4">Response Format</h3>
+                        <pre class="bg-dark text-light p-3 rounded"><code>{
+    "status": "success",
+    "results": [
+        {
+            "url": "https://www.youtube.com/watch?v=video_id1",
+            "status": "success",
+            "transcript": "Video transcript text...",
+            "error": null
+        },
+        {
+            "url": "https://www.youtube.com/watch?v=video_id2",
+            "status": "error",
+            "transcript": null,
+            "error": "Error message"
+        }
+    ]
+}</code></pre>
+
+                        <h3 class="mt-4">Try It Out</h3>
+                        <div class="mb-3">
+                            <textarea id="urlInput" class="form-control" rows="4" placeholder='{"urls": ["https://www.youtube.com/watch?v=example1", "https://www.youtube.com/watch?v=example2"]}'></textarea>
+                        </div>
+                        <button onclick="sendRequest()" class="btn btn-primary">Send Request</button>
+                        
+                        <div class="mt-4">
+                            <h4>Response:</h4>
+                            <pre id="response" class="bg-dark text-light p-3 rounded">Response will appear here...</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Status Codes</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">200: Successful request</li>
+                            <li class="list-group-item">400: Invalid request format</li>
+                            <li class="list-group-item">500: Server error</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
